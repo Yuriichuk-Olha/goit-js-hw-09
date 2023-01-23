@@ -8,14 +8,23 @@ function getRandomHexColor() {
     const btnStop = document.querySelector('button[data-stop]');
 
     let intervalId = null
+    let isActive = false
 
 btnStart.addEventListener("click", showColorClick);
 btnStop.addEventListener("click", hideColorClick);
 
+// поясніть чому в мене isActive- зразу працює а потім неможу запустити старт
+// чи isActive непотрібно використовувати???
+// 
 
 function showColorClick(){
-    btnStop.classList.remove('disabled');
-    btnStart.classList.add('disabled');
+    // if(isActive){
+    //     return
+    // }
+    // isActive = true;
+
+    btnStop.removeAttribute('disabled','');
+    btnStart.setAttribute('disabled','');
     intervalId = setInterval(() => {
         body.style.backgroundColor = getRandomHexColor();
      }, 1000)
@@ -24,8 +33,8 @@ function showColorClick(){
 
 
 function hideColorClick(){
-    btnStart.classList.remove('disabled');
-    btnStop.classList.add('disabled');
+    btnStart.removeAttribute('disabled','');
+    btnStop.setAttribute('disabled','');
     clearInterval(intervalId);
 }
 
