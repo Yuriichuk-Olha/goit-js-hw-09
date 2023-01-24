@@ -66,7 +66,7 @@ function onDataStart(){
         clearInterval(timerId);
        }
     }, 1000);
-
+return timerId;
 }
 
 function addLeadingZero(value){

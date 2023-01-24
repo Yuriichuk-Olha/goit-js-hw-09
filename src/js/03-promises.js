@@ -25,17 +25,15 @@ btn.addEventListener('click', event => {
     let first = firstDelay.value
     //console.log(first);
     let step = stepDelay.value
-    //console.log(step);
+   // console.log(step);
     for(let i = 0; i< amount.value; i++){
-
-        createPromise(i, first)
+        createPromise(i + 1, first)
   .then(({ position, delay }) => {
     Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  }, step)
-
+  })
   .catch(({ position, delay }) => {
     Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-  }, step);
-
+  });
     }
-  })
+    first += step;
+  });
