@@ -22,9 +22,9 @@ function createPromise(position, delay) {
 
 btn.addEventListener('click', event => {
   event.preventDefault()
-    let first = firstDelay.value
+    let first = firstDelay.value;
     //console.log(first);
-    let step = stepDelay.value
+    let step = stepDelay.value;
    // console.log(step);
     for(let i = 0; i< amount.value; i++){
         createPromise(i + 1, first)
@@ -34,6 +34,9 @@ btn.addEventListener('click', event => {
   .catch(({ position, delay }) => {
     Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
   });
+
+  first += step;
+
     }
-    first += step;
+
   });
